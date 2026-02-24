@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Mascotas - Patitas Felices</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">🐾 Patitas Felices</div>
+        <div class="nav-links">
+            <span id="userEmail" style="margin-right: 15px; color: var(--text-gray);"></span>
+            <a href="#" id="logoutBtn" class="btn-primary">Cerrar Sesión</a>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+        <div class="header-actions">
+            <h1>Gestión de Mascotas</h1>
+            <button class="btn-lg" onclick="abrirModal()">+ Nueva Mascota</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Especie</th>
+                    <th>Edad</th>
+                    <th>Dueño</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="mascotasTable">
+                <!-- Se llena dinámicamente -->
+            </tbody>
+        </table>
+    </main>
+
+    <!-- Modal para Nueva/Editar Mascota -->
+    <div id="mascotaModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Nueva Mascota</h2>
+            <form id="mascotaForm">
+                <input type="hidden" id="mascotaId">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label>Especie</label>
+                    <input type="text" id="especie" required placeholder="Ej: Perro, Gato">
+                </div>
+                <div class="form-group">
+                    <label>Raza</label>
+                    <input type="text" id="raza">
+                </div>
+                <div class="form-group">
+                    <label>Edad</label>
+                    <input type="number" id="edad" required>
+                </div>
+                <div class="form-group">
+                    <label>Dueño (DNI)</label>
+                    <input type="text" id="duenoDni" required placeholder="DNI del dueño existente">
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button type="submit" class="btn-full" style="flex: 2;">Guardar</button>
+                    <button type="button" class="btn-full" style="flex: 1; background: #475569;"
+                        onclick="cerrarModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/mascotas.js"></script>
+</body>
+
+</html>
